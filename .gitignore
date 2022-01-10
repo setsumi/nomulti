@@ -1,0 +1,17 @@
+/Win64
+
+/**/*.local
+/**/*.stat
+/**/*.dsk
+
+# Intermediate Build files
+/**/*.gch
+/**/*.map
+/**/*.obj
+/**/*.pch
+/**/*.tds
+
+/**/*.~*
+/**/*.#*
+/**/*.astcache
+/**/*.astinfo
