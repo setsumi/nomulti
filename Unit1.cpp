@@ -133,6 +133,14 @@ static BOOL CALLBACK enumWindowCallback(HWND hTarget, LPARAM lparam) {
 __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
 	Left = -(Width + 5);
 	Top = -(Height + 5);
+
+	CreateMutex(0, FALSE, L"Local\\$nomulti-setsumi$");
+	if (GetLastError() == ERROR_ALREADY_EXISTS) {
+		ShowMessagePlus("nomulti is already running, please wait.");
+        exit(1);
+	}
+
+	Timer1->Enabled = true;
 }
 
 // ---------------------------------------------------------------------------
@@ -168,9 +176,9 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender) {
 		}
 	}
 	else if (argc == 0) {
-		ShowMessagePlus(L"Prevent multiple instances by activating existing window"
-			L"\n\nUsage:\nnomulti programtorun.exe \"title:Window Title\" class:WINDOWCLASS" L"\n\nSpecify at least title or class"
-			);
+		ShowMessagePlus(L"Prevent multiple instances by activating existing window\n\n"
+			L"Usage:\nnomulti.exe yourprogram.exe \"title:WindowTitle\" " L"class:WINDOWCLASS\n\n"
+			L"Specify at least title or class (they can be partial)");
 		goto done;
 	}
 
