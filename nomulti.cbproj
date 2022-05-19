@@ -153,6 +153,7 @@
         <UWP_CppLogo150>one.png</UWP_CppLogo150>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName) by furniture;FileVersion=1.1.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=;ProductName=$(MSBuildProjectName);ProductVersion=1.1.0.0;Comments=</VerInfo_Keys>
+        <DynamicRTL>false</DynamicRTL>
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="nomulti.cpp">
